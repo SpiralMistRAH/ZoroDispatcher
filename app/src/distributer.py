@@ -14,7 +14,6 @@ api_url = "https://api.mexc.com"
 def _get_server_time():
     return requests.request('get', f'{api_url}/api/v3/time').json()['serverTime']
 
-
 def _sign_v3(api_secret, req_time, sign_params=None):
     if sign_params:
         sign_params = urlencode(sign_params, quote_via=quote)
@@ -50,7 +49,7 @@ def get_balance(api_key, api_secret, coin):
 def withdraw_funds(api_key, api_secret, coin, address, amount, network='Arbitrum One'):
     balance = get_balance(api_key, api_secret, coin)
     if balance is None or balance < amount:
-        print(f"Insufficient balance to transfer {amount} {coin} to {address}")
+        print(f"Insufficient balance to transfer {amount} {coin} to {address}\n")
         return None
         
     params = {
@@ -89,7 +88,14 @@ def distribute_funds(api_key, api_secret, coin, addresses, min_amount, max_amoun
         print(f"Distributing {amount} {coin} to {address}")
         print("api_key passed: " + api_key)
         response = withdraw_funds(api_key, api_secret, coin, address, amount, network)
+
+        if response is None:
+            raise ValueError('Balance is zero')
+    
+        if 'msg' in response and 'Insufficient balance' in response['msg']:
+            raise ValueError('Insufficient balance to transfer')
         print(response)
+        
 
 
 if __name__ == "__main__":

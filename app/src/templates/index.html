@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zoro Dispatcher</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h1 class="mt-4">Zoro Dispatcher</h1>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="coin">Coin</label>
+                        <input type="text" class="form-control" id="coin" name="coin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addresses">Addresses</label>
+                        <textarea class="form-control" id="addresses" name="addresses" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="network">Network</label>
+                        <input type="text" class="form-control" id="network" name="network" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="minAmount">Minimum Amount</label>
+                        <input type="text" class="form-control" id="minAmount" name="min_amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="maxAmount">Maximum Amount</label>
+                        <input type="text" class="form-control" id="maxAmount" name="max_amount" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
