@@ -4,6 +4,7 @@ import hmac
 import hashlib
 import random
 from values import api_key, api_secret
+from wallets import addresses
 
 from urllib.parse import urlencode, quote
 
@@ -96,7 +97,7 @@ if __name__ == "__main__":
     api_key = api_key
     api_secret = api_secret
     coin = 'ETH'
-    addresses = ["wallets", "wallets1"]  # Replace with the actual addresses
+    addresses = addresses  # Replace with the actual addresses
     min_amount = 0.129
     max_amount = 0.131
 
