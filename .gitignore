@@ -1,4 +1,4 @@
 __pycache__
 distributer/__pycache__
 app/src/__pycache__
-.env
+app\src\EraTrader\src\.env
